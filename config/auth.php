@@ -50,6 +50,11 @@ return [
             'driver' => 'session',
             'provider' => 'admins',
         ],
+
+        'curtner' => [
+            'driver' => 'session',
+            'provider' => 'curtners',
+        ],
     ],
 
     /*
@@ -80,6 +85,10 @@ return [
             'model' => App\Admin::class,
         ],
 
+        'curtners' => [
+            'driver' => 'eloquent',
+            'model' => App\Curtner::class,
+        ],
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',
@@ -109,6 +118,11 @@ return [
         ],
         'admins' => [
             'provider' => 'admins',
+            'table' => 'password_resets',
+            'expire' => 20, //minutes
+        ],
+        'curtners' => [
+            'provider' => 'curtners',
             'table' => 'password_resets',
             'expire' => 20, //minutes
         ],

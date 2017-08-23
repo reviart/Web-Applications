@@ -17,7 +17,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-//Route::get('')
+//Route::get('https://developers.zomato.com/api/v2.1/categories')
 
 Route::prefix('users')->group(function(){
     //users home
@@ -35,7 +35,7 @@ Route::prefix('users')->group(function(){
     Route::get('/orders/failed', 'OrderController@failed')->name('user.order.failed');
 
     //users logout
-    Route::get('/logout', 'Auth\LoginController@userLogout')->name('user.logout');
+    Route::post('/logout', 'Auth\LoginController@userLogout')->name('user.logout');
 });
 
 

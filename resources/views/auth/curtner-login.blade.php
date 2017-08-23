@@ -7,11 +7,11 @@
     <link href="{{ asset('sign_materials/bootstrap.min.css') }}" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{{ asset('sign_materials/style.css') }}">
 
-    <title>Sign in</title>
+    <title>Sign in - curtner</title>
 </head>
 
 
-<body background="{{ asset('sign_materials/banner2.jpg') }}">
+<body background="{{ asset('sign_materials/banner.jpg') }}">
       <header>
         <nav class="navbar navbar-default">
           <div class="container-fluid">

@@ -5,17 +5,18 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class User extends Authenticatable
+class Menu extends Authenticatable
 {
     use Notifiable;
 
+    public $table = "menus";
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'gender', 'phone_number', 'address', 'tag_address'
+        'curtner_id', 'menu_name', 'many_menus', 'status', 'price'
     ];
 
     /**
@@ -23,11 +24,8 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $hidden = [
-        'password', 'remember_token',
-    ];
 
-    public function orders(){
-      return $this->hasMany(Order::class);
-    }
+     public function curtners(){
+       return $this->belongsTo(Curtner::class);
+     }
 }

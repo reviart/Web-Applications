@@ -22,3 +22,14 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'remember_token' => str_random(10),
     ];
 });
+
+$factory->define(App\Menu::class, function (Faker\Generator $faker) {
+    return [
+        'curtner_id' => App\Menu::all()->random()->id,
+        'name' => $faker->name,
+        'menu_name' => $faker->sentence,
+        'many_menus' => $faker->many_menus(random_int(0,100)),
+        'status' => $faker->status(random_int(0,1)),
+        'price' => $faker->price(random_double(5000, 1000000)),
+    ];
+});
