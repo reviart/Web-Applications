@@ -13,14 +13,24 @@ class CreateCurtnersTable extends Migration
      */
     public function up()
     {
-        Schema::create('curtners', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('store_name');
-            $table->string('owner');
-            $table->string('email')->unique();
-            $table->string('password');
-            $table->string('phone_number');
-            $table->string('address');
+      /*
+        Update 24 august
+      */
+        Schema::create('CURTNERS', function (Blueprint $table) {
+            $table->increments('ID');
+
+            //foreign
+            $table->integer('ORIGIN_ID');
+
+            //content
+            $table->string('NAME_CURT');
+            $table->string('EMAIL_CURT')->unique();
+            $table->string('PASSWD_CURT');
+            $table->string('ADDRESS_CURT');
+            $table->string('PHONENUMB_CURT');
+            $table->string('OWNERNAME_CURT');
+            $table->string('OWNERIDNUMB_CURT');
+            $table->string('PIC_TB_CURT');
             $table->rememberToken();
             $table->timestamps();
         });

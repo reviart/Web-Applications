@@ -21,7 +21,7 @@ Auth::routes();
 
 Route::prefix('users')->group(function(){
     //users home
-    Route::get('/home', 'HomeController@index')->name('user.dashboard');
+    Route::get('/', 'HomeController@index')->name('user.dashboard');
 
     //orders
     Route::get('/orders', 'OrderController@index')->name('user.order');
@@ -41,7 +41,7 @@ Route::prefix('users')->group(function(){
 
 Route::prefix('ac2017')->group(function(){
   //admins home
-  Route::get('/', 'AdminController@index')->name('admin.dashboard');
+  Route::get('/', 'AdminMenuController@index')->name('admin.dashboard');
 
   //admin register
   Route::get('/register', 'Auth\AdminLoginController@showRegistrationForm')->name('admin.register');
@@ -52,7 +52,7 @@ Route::prefix('ac2017')->group(function(){
   Route::post('/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
 
   //admin logout
-  Route::get('/logout', 'Auth\AdminLoginController@logout')->name('admin.logout');
+  Route::post('/logout', 'Auth\AdminLoginController@logout')->name('admin.logout');
 
   //admin password reset
   Route::get('/password/reset', 'Auth\AdminLoginController@logout')->name('admin.reset');
@@ -65,4 +65,21 @@ Route::prefix('ac2017')->group(function(){
   Route::get('/order/success', 'AdminOrderController@success')->name('admin.order.success');
   Route::get('/order/progress', 'AdminOrderController@progress')->name('admin.order.progress');
   Route::get('/order/failed', 'AdminOrderController@failed')->name('admin.order.failed');
+
+});
+
+Route::prefix('curtners')->group(function(){
+  //curtner home
+  Route::get('/', 'MenuController@index')->name('curtner.dashboard');
+
+  //curtner register
+  Route::get('/register', 'Auth\CurtnerLoginController@showRegistrationForm')->name('curtner.register');
+  Route::post('/register', 'Auth\CurtnerLoginController@register')->name('curtner.register.submit');
+
+  //curtner login
+  Route::get('/login', 'Auth\CurtnerLoginController@showLoginForm')->name('curtner.login');
+  Route::post('/login', 'Auth\CurtnerLoginController@login')->name('curtner.login.submit');
+
+  //curtner logout
+  Route::get('/logout', 'Auth\CurtnerLoginController@logout')->name('curtner.logout');
 });

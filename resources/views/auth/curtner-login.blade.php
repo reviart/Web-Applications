@@ -6,8 +6,8 @@
     <!-- Bootstrap core CSS -->
     <link href="{{ asset('sign_materials/bootstrap.min.css') }}" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{{ asset('sign_materials/style.css') }}">
-
-    <title>Sign in - curtner</title>
+    <link rel="shortcut icon" type="image/png" href="http://roomyz.com/wp-content/uploads/2016/01/cropped-favicon-1-300x300.png"/>
+    <title>Curtner login</title>
 </head>
 
 
@@ -42,7 +42,7 @@
 
             <div class="col-sm-6">
               <br><br><br>
-              <form method="POST" action="{{ route('login') }}">
+              <form method="POST" action="{{ route('curtner.login.submit') }}">
               {{ csrf_field() }}
 
               <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }} has-feedback">
@@ -78,7 +78,7 @@
 
               <div class="form-group">
                 <button type="submit" class="btn btn-primary">Login</button>
-                <a href="{{ route('register') }}" class="btn btn-primary">Register</a>
+                <a href="{{ route('curtner.register') }}" class="btn btn-primary">Register</a>
               </div>
 
               </form>

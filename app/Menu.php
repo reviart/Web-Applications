@@ -8,7 +8,6 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 class Menu extends Authenticatable
 {
     use Notifiable;
-
     public $table = "menus";
     /**
      * The attributes that are mass assignable.

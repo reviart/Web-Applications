@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Auth;
+use App\Admin;
 //use Illuminate\Support\Facades\Redirect;
 
 class AdminRegisterController extends Controller
@@ -20,13 +21,9 @@ class AdminRegisterController extends Controller
 
     public function register(Request $request){
       //Validates data
-        $this->validator($request->all())->validate();
+        $this->validation($request);
 
-       //Create seller
-        $admin = $this->create($request->all());
-
-        //Authenticates seller
-        $this->guard()->login($admin);
+        Admin::create($request);
 
        //Redirects sellers
         return redirect()->intended(route('admin.dashboard'));
@@ -37,7 +34,7 @@ class AdminRegisterController extends Controller
     {
         return Validator::make($data, [
             'name' => 'required|max:255',
-            'email' => 'required|email|max:255|unique:sellers',
+            'email' => 'required|email|max:255|unique:admins',
             'password' => 'required|min:6|confirmed',
         ]);
     }
@@ -52,5 +49,4 @@ class AdminRegisterController extends Controller
             'job_title' => $data['job_title'],
         ]);
     }
-
 }

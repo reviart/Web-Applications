@@ -6,10 +6,9 @@
     <!-- Bootstrap core CSS -->
     <link href="{{ asset('sign_materials/bootstrap.min.css') }}" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{{ asset('sign_materials/style.css') }}">
-
-    <title>Sign in</title>
+    <link rel="shortcut icon" type="image/png" href="http://roomyz.com/wp-content/uploads/2016/01/cropped-favicon-1-300x300.png"/>
+    <title>User login</title>
 </head>
-
 
 <body background="{{ asset('sign_materials/banner2.jpg') }}">
       <header>

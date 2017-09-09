@@ -13,13 +13,22 @@ class CreateMenusTable extends Migration
      */
     public function up()
     {
-        Schema::create('menus', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('curtner_id');
-            $table->string('menu_name');
-            $table->integer('many_menus');
-            $table->boolean('status'); //available or na
-            $table->double('price');
+        Schema::create('MENUS', function (Blueprint $table) {
+            $table->increments('ID');
+
+            //foreign
+            $table->integer('CURTNER_ID');
+            $table->integer('CATEGORY_MENU_ID');
+            $table->integer('ORIGIN_ID');
+
+            //content
+            $table->string('NAME_MENU');
+            $table->double('PRICE_MENU');
+            $table->boolean('STATUS_MENU'); //available or notavailable
+            $table->string('IMAGE_MENU ');
+            $table->string('RAWMATERIAL_MENU');
+            $table->string('DESC_MENU');
+            $table->string('PIC_TB_MENU');
             $table->timestamps();
         });
     }
