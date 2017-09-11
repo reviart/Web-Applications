@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAdminsTable extends Migration
+class CreateStatusOrder extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,20 @@ class CreateAdminsTable extends Migration
      */
     public function up()
     {
-        Schema::create('ADMINS', function (Blueprint $table) {
+        Schema::create('STATUSORDER', function (Blueprint $table) {
             $table->increments('ID');
-            $table->string('NAME');
-            $table->string('EMAIL')->unique();
-            $table->string('JOB_TITLE');
-            $table->string('PASSWORD');
-            $table->rememberToken();
+
+            //foreign
+            $table->integer('ADMIN_ID');
+
+            //content
+            $table->string('STATUS_NAME');
+            $table->string('STATUS_DESC');
             $table->timestamps();
+
+            /*
+              PIC = ADMIN
+            */
         });
     }
 
@@ -31,6 +37,6 @@ class CreateAdminsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('admins');
+        Schema::dropIfExists('STATUSORDER');
     }
 }

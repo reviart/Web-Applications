@@ -14,10 +14,14 @@ class CreateUsersTable extends Migration
     public function up()
     {
       /*
-        Update 24 august
+        nullable();
       */
         Schema::create('USERS', function (Blueprint $table) {
             $table->increments('ID');
+
+            //foreign
+            $table->integer('ADMIN_ID');
+
             $table->string('EMAIL_CUST')->unique();
             $table->string('PASSWD_CUST');
             $table->string('NAME_CUST');
@@ -25,10 +29,13 @@ class CreateUsersTable extends Migration
             $table->string('ADDRESS_CUST');
             $table->string('ADDRESS_TAG_CUST');
             $table->string('PHONENUMB_CUST');
-            $table->string('PIC_TB_CUST');
-            $table->string('PICTURE_CUST');
+            $table->string('IMAGE_CUST');
             $table->rememberToken();
             $table->timestamps();
+
+            /*
+              PIC = ADMIN
+            */
         });
     }
 

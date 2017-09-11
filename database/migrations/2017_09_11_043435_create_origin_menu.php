@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAdminsTable extends Migration
+class CreateOriginMenu extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,19 @@ class CreateAdminsTable extends Migration
      */
     public function up()
     {
-        Schema::create('ADMINS', function (Blueprint $table) {
+        Schema::create('ORIGINMENU', function (Blueprint $table) {
             $table->increments('ID');
-            $table->string('NAME');
-            $table->string('EMAIL')->unique();
-            $table->string('JOB_TITLE');
-            $table->string('PASSWORD');
-            $table->rememberToken();
+
+            //foreign
+            $table->integer('CURTNER_ID');
+
+            //content
+            $table->string('ORIGIN_CURTNER');
             $table->timestamps();
+
+            /*
+              PIC = CURTNER
+            */
         });
     }
 
@@ -31,6 +36,6 @@ class CreateAdminsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('admins');
+        Schema::dropIfExists('CREATEMENU');
     }
 }

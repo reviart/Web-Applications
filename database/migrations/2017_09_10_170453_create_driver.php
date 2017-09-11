@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCurtnersTable extends Migration
+class CreateDriver extends Migration
 {
     /**
      * Run the migrations.
@@ -13,21 +13,21 @@ class CreateCurtnersTable extends Migration
      */
     public function up()
     {
-        Schema::create('CURTNERS', function (Blueprint $table) {
+        Schema::create('DRIVER', function (Blueprint $table) {
             $table->increments('ID');
 
             //foreign
-            $table->integer('ORIGIN_ID');
             $table->integer('ADMIN_ID');
 
             //content
-            $table->string('NAME_CURT');
-            $table->string('EMAIL_CURT')->unique();
-            $table->string('PASSWD_CURT');
-            $table->string('ADDRESS_CURT');
-            $table->string('PHONENUMB_CURT');
-            $table->string('OWNERNAME_CURT');
-            $table->string('OWNERIDNUMB_CURT');
+            $table->string('ID_CARD_NUMBER');
+            $table->string('EMAIL_DRIVER');
+            $table->string('PASSWD_DRIVER');
+            $table->string('NAME_DRIVER');
+            $table->boolean('GENDER_DRIVER');
+            $table->string('ADDRESS_DRIVER');
+            $table->string('VECHILE_NUMBER');
+            $table->string('PHONENUMB_DRIVER');
             $table->rememberToken();
             $table->timestamps();
 
@@ -44,6 +44,6 @@ class CreateCurtnersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('curtners');
+        Schema::dropIfExists('DRIVER');
     }
 }

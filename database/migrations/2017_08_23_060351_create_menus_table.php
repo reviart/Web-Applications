@@ -24,12 +24,15 @@ class CreateMenusTable extends Migration
             //content
             $table->string('NAME_MENU');
             $table->double('PRICE_MENU');
-            $table->boolean('STATUS_MENU'); //available or notavailable
+            $table->boolean('STATUS_MENU'); //available or not available
             $table->string('IMAGE_MENU ');
-            $table->string('RAWMATERIAL_MENU');
-            $table->string('DESC_MENU');
-            $table->string('PIC_TB_MENU');
+            $table->string('RAWMATERIAL_MENU'); //bahan dasar
+            $table->text('DESC_MENU');
             $table->timestamps();
+
+            /*
+              PIC = CURTNER
+            */
         });
     }
 
