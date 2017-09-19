@@ -16,7 +16,7 @@ class Admin extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'job_title'
+        'NAME', 'EMAIL', 'PASSWORD', 'JOB_TITLE'
     ];
 
     /**
@@ -25,6 +25,14 @@ class Admin extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'PASSWORD', 'remember_token',
     ];
+
+    public function users(){
+      return $this->hasMany('App\User');
+    }
+
+    public function curtners(){
+      return $this->hasMany('App\Curtner');
+    }
 }

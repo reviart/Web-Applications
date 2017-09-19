@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUsersTable extends Migration
+class CreateDriver extends Migration
 {
     /**
      * Run the migrations.
@@ -13,30 +13,27 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
-      /*
-        nullable();
-      */
-        Schema::create('USERS', function (Blueprint $table) {
-            $table->string('USER_ID')->primary();
+        Schema::create('DRIVERS', function (Blueprint $table) {
+            $table->string('DRIVER_ID')->primary();
 
             //foreign
             $table->string('ADMIN_ID');
 
             //content
-            $table->string('EMAIL_CUST', 150);
-            $table->string('PASSWD_CUST');
-            $table->string('NAME_CUST', 150);
-            $table->enum('GENDER_CUST', ['PRIA', 'WANITA']);
-            $table->string('ADDRESS_CUST', 200);
-            $table->string('ADDRESS_TAG_CUST', 30);
-            $table->string('PHONENUMB_CUST', 15);
-            $table->string('IMAGE_CUST')->nullable();
+            $table->string('ID_CARD_NUMBER', 50);
+            $table->string('EMAIL_DRIVER', 150);
+            $table->string('PASSWD_DRIVER');
+            $table->string('NAME_DRIVER', 150);
+            $table->enum('GENDER_DRIVER', ['PRIA', 'WANITA']);
+            $table->string('ADDRESS_DRIVER', 200);
+            $table->string('VECHILE_NUMBER', 10);
+            $table->string('PHONENUMB_DRIVER', 15);
+            $table->string('IMAGE_DRIVER')->nullable();
             $table->rememberToken();
             $table->timestamps();
 
             //constraint
             $table->foreign('ADMIN_ID')->references('ADMIN_ID')->on('ADMINS');
-
             /*
               PIC = ADMIN
             */
@@ -50,6 +47,6 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('DRIVER');
     }
 }

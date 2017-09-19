@@ -13,19 +13,23 @@ class CreateStatusOrder extends Migration
      */
     public function up()
     {
-        Schema::create('STATUSORDER', function (Blueprint $table) {
-            $table->increments('ID');
+        Schema::create('STATUS_ORDERS', function (Blueprint $table) {
+            $table->string('STATUS_ID')->primary();
 
             //foreign
-            $table->integer('ADMIN_ID');
+            $table->string('ADMIN_ID');
+            $table->string('DRIVER_ID');
 
             //content
-            $table->string('STATUS_NAME');
-            $table->string('STATUS_DESC');
+            $table->string('STATUS_NAME', 30);
+            $table->text('STATUS_DESC');
             $table->timestamps();
 
+            //constraint
+            $table->foreign('ADMIN_ID')->references('ADMIN_ID')->on('ADMINS');
+            $table->foreign('DRIVER_ID')->references('DRIVER_ID')->on('DRIVERS');
             /*
-              PIC = ADMIN
+              PIC = ADMIN & DRIVER
             */
         });
     }

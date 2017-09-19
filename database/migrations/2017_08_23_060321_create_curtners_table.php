@@ -14,23 +14,26 @@ class CreateCurtnersTable extends Migration
     public function up()
     {
         Schema::create('CURTNERS', function (Blueprint $table) {
-            $table->increments('ID');
+            $table->string('CURTNER_ID')->primary();
 
             //foreign
-            $table->integer('ORIGIN_ID');
-            $table->integer('ADMIN_ID');
+            //$table->string('ORIGIN_ID')->nullable();
+            $table->string('ADMIN_ID');
 
             //content
-            $table->string('NAME_CURT');
-            $table->string('EMAIL_CURT')->unique();
+            $table->string('NAME_CURT', 150);
+            $table->string('EMAIL_CURT', 150);
             $table->string('PASSWD_CURT');
-            $table->string('ADDRESS_CURT');
-            $table->string('PHONENUMB_CURT');
-            $table->string('OWNERNAME_CURT');
-            $table->string('OWNERIDNUMB_CURT');
+            $table->string('ADDRESS_CURT', 200);
+            $table->string('PHONENUMB_CURT', 15);
+            $table->string('OWNERNAME_CURT', 150);
+            $table->string('OWNERIDNUMB_CURT', 50);
             $table->rememberToken();
             $table->timestamps();
 
+            //constraint
+            //$table->foreign('ORIGIN_ID')->references('ORIGIN_ID')->on('ORIGINMENUS');
+            $table->foreign('ADMIN_ID')->references('ADMIN_ID')->on('ADMINS');
             /*
               PIC = ADMIN
             */
