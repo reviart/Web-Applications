@@ -5,17 +5,17 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class Order extends Authenticatable
+class Origin extends Authenticatable
 {
     use Notifiable;
-    public $table = "users_orders";
+    public $table = "originmenus";
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'user_id','menu_id', 'receiver', 'phone_number', 'address', 'status', 'total_price'
+        'CURTNER_ID', 'ORIGIN_CURTNER'
     ];
 
     /**
@@ -24,5 +24,7 @@ class Order extends Authenticatable
      * @var array
      */
 
-     
+     public function curtners(){
+       return $this->hasMany('App\Curtner');
+     }
 }

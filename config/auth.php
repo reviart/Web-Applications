@@ -55,6 +55,11 @@ return [
             'driver' => 'session',
             'provider' => 'curtners',
         ],
+
+        'driver' => [
+            'driver' => 'session',
+            'provider' => 'drivers',
+        ],
     ],
 
     /*
@@ -89,6 +94,11 @@ return [
             'driver' => 'eloquent',
             'model' => App\Curtner::class,
         ],
+
+        'drivers' => [
+            'driver' => 'eloquent',
+            'model' => App\Driver::class,
+        ],
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',
@@ -114,17 +124,22 @@ return [
         'users' => [
             'provider' => 'users',
             'table' => 'password_resets',
-            'expire' => 60,
+            'expire' => 10,
         ],
         'admins' => [
             'provider' => 'admins',
             'table' => 'password_resets',
-            'expire' => 20, //minutes
+            'expire' => 10, //minutes
         ],
         'curtners' => [
             'provider' => 'curtners',
             'table' => 'password_resets',
-            'expire' => 20, //minutes
+            'expire' => 10, //minutes
+        ],
+        'drivers' => [
+            'provider' => 'drivers',
+            'table' => 'password_resets',
+            'expire' => 30, //minutes
         ],
     ],
 

@@ -72,6 +72,10 @@ class Handler extends ExceptionHandler
             $login = 'curtner.login';
             break;
 
+          case 'driver':
+            $login = 'driver.login';
+            break;
+
           default:
             $login = 'login';
             break;

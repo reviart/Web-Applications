@@ -16,7 +16,8 @@ class Curtner extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'store_name', 'email', 'owner', 'password', 'phone_number', 'address'
+        'ADMIN_ID', 'NAME_CURT', 'EMAIL_CURT', 'PASSWD_CURT', 'ADDRESS_CURT',
+        'PHONENUMB_CURT', 'OWNERNAME_CURT', 'OWNERIDNUMB_CURT'
     ];
 
     /**
@@ -25,10 +26,16 @@ class Curtner extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'PASSWD_CURT', 'remember_token',
     ];
 
-    public function menus(){
-      return $this->hasMany(Menu::class);
+    public function admins(){
+      return $this->belongsTo('App\Admin');
+    }
+    public function originmenus(){
+      return $this->belongsTo('App\OriginMenu');
+    }
+    public function categorymenus(){
+      return $this->hasMany('App\CategoryMenu');
     }
 }

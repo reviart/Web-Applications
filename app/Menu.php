@@ -15,7 +15,8 @@ class Menu extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'curtner_id', 'menu_name', 'many_menus', 'status', 'price'
+        'CURTNER_ID', 'CATEGORY_MENU_ID', 'ORIGIN_ID', 'NAME_MENU', 'PRICE_MENU',
+        'STATUS_MENU', 'IMAGE_MENU', 'RAWMATERIAL_MENU', 'DESC_MENU'
     ];
 
     /**
@@ -25,6 +26,14 @@ class Menu extends Authenticatable
      */
 
      public function curtners(){
-       return $this->belongsTo(Curtner::class);
+       return $this->belongsTo('App\Curtner');
+     }
+
+     public function categorymenus(){
+       return $this->hasMany('App\CategoryMenu');
+     }
+
+     public function originmenus(){
+       return $this->belongsToMany('App\OriginMenu');
      }
 }

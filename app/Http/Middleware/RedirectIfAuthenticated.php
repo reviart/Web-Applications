@@ -30,6 +30,12 @@ class RedirectIfAuthenticated
           }
           break;
 
+        case 'driver':
+          if (Auth::guard($guard)->check()) {
+              return redirect()->route('driver.dashboard');
+          }
+          break;
+
         default:
           if (Auth::guard($guard)->check()) {
               return redirect()->route('user.dashboard');

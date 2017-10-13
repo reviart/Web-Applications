@@ -17,7 +17,6 @@ class CreateMenusTable extends Migration
             $table->string('MENU_ID')->primary();
 
             //foreign
-            $table->string('CURTNER_ID');
             $table->string('CATEGORY_MENU_ID');
             $table->string('ORIGIN_ID');
 
@@ -31,7 +30,6 @@ class CreateMenusTable extends Migration
             $table->timestamps();
 
             //constraint
-            $table->foreign('CURTNER_ID')->references('CURTNER_ID')->on('CURTNERS');
             $table->foreign('ORIGIN_ID')->references('ORIGIN_ID')->on('ORIGINMENUS');
             $table->foreign('CATEGORY_MENU_ID')->references('CATEGORY_ID')->on('CATEGORYMENUS');
             /*
