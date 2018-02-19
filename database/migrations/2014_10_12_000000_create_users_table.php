@@ -13,33 +13,13 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
-      /*
-        nullable();
-      */
-        Schema::create('USERS', function (Blueprint $table) {
-            $table->string('USER_ID')->primary();
-
-            //foreign
-            $table->string('ADMIN_ID');
-
-            //content
-            $table->string('EMAIL_CUST', 150);
-            $table->string('PASSWD_CUST');
-            $table->string('NAME_CUST', 150);
-            $table->enum('GENDER_CUST', ['PRIA', 'WANITA']);
-            $table->string('ADDRESS_CUST', 200);
-            $table->string('ADDRESS_TAG_CUST', 30);
-            $table->string('PHONENUMB_CUST', 15);
-            $table->string('IMAGE_CUST')->nullable();
+        Schema::create('users', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('name');
+            $table->string('email')->unique();
+            $table->string('password');
             $table->rememberToken();
             $table->timestamps();
-
-            //constraint
-            $table->foreign('ADMIN_ID')->references('ADMIN_ID')->on('ADMINS');
-
-            /*
-              PIC = ADMIN
-            */
         });
     }
 

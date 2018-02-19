@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'ADMIN_ID','NAME_CUST', 'EMAIL_CUST', 'PASSWD_CUST', 'GENDER_CUST', 'PHONENUMB_CUST', 'ADDRESS_CUST', 'ADDRESS_TAG_CUST', 'IMAGE_CUST'
+        'name', 'email', 'password',
     ];
 
     /**
@@ -24,14 +24,6 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'PASSWD_CUST', 'remember_token',
+        'password', 'remember_token',
     ];
-
-    public function admins(){
-      return $this->belongsTo('App\Admin');
-    }
-
-    public function coordinates(){
-      return $this->hasMany('App\Coordinate');
-    }
 }
