@@ -45,6 +45,26 @@ return [
             'driver' => 'token',
             'provider' => 'users',
         ],
+
+        'admin' => [
+           'driver' => 'session',
+           'provider' => 'admins',
+       ],
+
+       'curtner' => [
+          'driver' => 'session',
+          'provider' => 'curtners',
+      ],
+
+      'customer' => [
+         'driver' => 'session',
+         'provider' => 'customers',
+     ],
+
+       'admin-api' => [
+           'driver' => 'token',
+           'provider' => 'admins',
+       ],
     ],
 
     /*
@@ -68,6 +88,18 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => App\User::class,
+        ],
+        'admins' => [
+            'driver' => 'eloquent',
+            'model' => App\Admin::class,
+        ],
+        'curtners' => [
+            'driver' => 'eloquent',
+            'model' => App\Curtner::class,
+        ],
+        'customers' => [
+            'driver' => 'eloquent',
+            'model' => App\Customer::class,
         ],
 
         // 'users' => [
@@ -96,6 +128,21 @@ return [
             'provider' => 'users',
             'table' => 'password_resets',
             'expire' => 60,
+        ],
+        'admins' => [
+            'provider' => 'admins',
+            'table' => 'password_resets',
+            'expire' => 15,
+        ],
+        'curtners' => [
+            'provider' => 'curtners',
+            'table' => 'password_resets',
+            'expire' => 15,
+        ],
+        'customers' => [
+            'provider' => 'customers',
+            'table' => 'password_resets',
+            'expire' => 15,
         ],
     ],
 

@@ -71,8 +71,8 @@
                     @auth
                         <a href="{{ url('/home') }}">Home</a>
                     @else
-                        <a href="{{ route('login') }}">Login</a>
-                        <a href="{{ route('register') }}">Register</a>
+                        <a href="{{ route('login') }}">Login (jangan)</a>
+                        <a href="{{ route('register') }}">Register (jangan)</a>
                     @endauth
                 </div>
             @endif
@@ -83,11 +83,12 @@
                 </div>
 
                 <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                  <a href="{{ route('admin.login') }}">Login admin</a>
+                  <a href="{{ route('admin.register') }}">Register admin</a>
+                  <a href="{{ route('curtner.login') }}">Login curtner</a>
+                  <a href="{{ route('curtner.register') }}">Register curtner</a>
+                  <a href="{{ route('customer.login') }}">Login customer</a>
+                  <a href="{{ route('customer.register') }}">Register customer</a>
                 </div>
             </div>
         </div>
